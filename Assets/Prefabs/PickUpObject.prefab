@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 7487440253021718949}
   m_Layer: 0
   m_Name: Visual
-  m_TagString: Untagged
+  m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -207,3 +207,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c282d1c2df3f501438e330d9ca2e30b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickUpObject: {fileID: 11400000, guid: 76f6cd1b8e85a5b428766b13c318f610, type: 2}
+  pickUpPrefabs: {fileID: 4085712638838601920}
