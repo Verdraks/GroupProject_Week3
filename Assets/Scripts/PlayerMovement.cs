@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("RSE")]
+    [SerializeField] RSE_UpdateSpriteToFront RSE_UpdateSpriteToFront;
+    [SerializeField] RSE_UpdateSpriteToBack RSE_UpdateSpriteToBack;
+    [SerializeField] RSE_UpdateSpriteToLeft RSE_UpdateSpriteToLeft;
+    [SerializeField] RSE_UpdateSpriteToRight RSE_UpdateSpriteToRight;
     [SerializeField] float playerSpeed;
     private Vector2Int targetPos;
     private void Awake()
@@ -31,18 +36,22 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             targetPos += Vector2Int.up;
+            RSE_UpdateSpriteToBack.RaiseEvent();
         }
         else if (Input.GetKey(KeyCode.S))
         {
             targetPos += Vector2Int.down;
+            RSE_UpdateSpriteToFront.RaiseEvent();
         }
         else if (Input.GetKey(KeyCode.D))
         {
             targetPos += Vector2Int.right;
+            RSE_UpdateSpriteToRight.RaiseEvent();
         }
         else if (Input.GetKey(KeyCode.A))
         {
             targetPos += Vector2Int.left;
+            RSE_UpdateSpriteToLeft.RaiseEvent();
         }
     }
 }

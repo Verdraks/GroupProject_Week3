@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6437417599626961762}
   - component: {fileID: 4700701787927517757}
   - component: {fileID: 225863694334167328}
+  - component: {fileID: 7764730158660151941}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Player
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -4413968004751586887, guid: 4d8fa7d0fa1a27a4d971aa14a2bfd812, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -153,6 +154,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7764730158660151941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3895544216491982573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f472ee2f6a8ed8b40bf9cbe625006290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RSE_UpdateSpriteToFront: {fileID: 11400000, guid: fa25131a6997caf4a8f4dacd674d160d, type: 2}
+  RSE_UpdateSpriteToBack: {fileID: 11400000, guid: 3ca91950c20dd524196b7c54d51983fd, type: 2}
+  RSE_UpdateSpriteToLeft: {fileID: 11400000, guid: e4289be6bdeb5454297c7873807d565d, type: 2}
+  RSE_UpdateSpriteToRight: {fileID: 11400000, guid: 0ef8e3c1492dc264da58c08930b63cec, type: 2}
+  playerSpriteRenderer: {fileID: 6437417599626961762}
+  playerFront: {fileID: -4413968004751586887, guid: 4d8fa7d0fa1a27a4d971aa14a2bfd812, type: 3}
+  playerBack: {fileID: -6637313397531266025, guid: 4d8fa7d0fa1a27a4d971aa14a2bfd812, type: 3}
+  playerLeft: {fileID: 3723031970553672555, guid: 4d8fa7d0fa1a27a4d971aa14a2bfd812, type: 3}
+  playerRight: {fileID: 1821921275537806205, guid: 4d8fa7d0fa1a27a4d971aa14a2bfd812, type: 3}
 --- !u!1 &3967144153104352289
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +220,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94108e263fc4da54cb7509e7dad38701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RSE_UpdateSpriteToFront: {fileID: 11400000, guid: fa25131a6997caf4a8f4dacd674d160d, type: 2}
+  RSE_UpdateSpriteToBack: {fileID: 11400000, guid: 3ca91950c20dd524196b7c54d51983fd, type: 2}
+  RSE_UpdateSpriteToLeft: {fileID: 11400000, guid: e4289be6bdeb5454297c7873807d565d, type: 2}
+  RSE_UpdateSpriteToRight: {fileID: 11400000, guid: 0ef8e3c1492dc264da58c08930b63cec, type: 2}
   playerSpeed: 5
 --- !u!1 &4447286153192761826
 GameObject:
@@ -243,7 +269,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
