@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RSE_PickUpObject: {fileID: 11400000, guid: 76f6cd1b8e85a5b428766b13c318f610, type: 2}
-  callWinGame: {fileID: 11400000, guid: a4f4bab773187f84c80b0f263a6c08d6, type: 2}
+  RSE_CanFinishLevel: {fileID: 11400000, guid: 38b177bd96514e94296bcfc29947b1ba, type: 2}

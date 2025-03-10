@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     [Header("RSE")]
     [SerializeField] RSE_PickUpObject RSE_PickUpObject;
-    [SerializeField] RSE_CallWinGame callWinGame;
+    [SerializeField] RSE_CanFinishLevel RSE_CanFinishLevel;
     private int pickUpCount;
 
     private void OnEnable()
@@ -26,12 +26,12 @@ public class GameManager : MonoBehaviour
         pickUpCount--;
         if (pickUpCount <= 0)
         {
-            WinGame();
+            SetTrueFinishLevel();
         }
     }
 
-    private void WinGame()
+    private void SetTrueFinishLevel()
     {
-        callWinGame.RaiseEvent();
+        RSE_CanFinishLevel.RaiseEvent(true);
     }
 }
