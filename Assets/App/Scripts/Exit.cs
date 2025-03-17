@@ -26,7 +26,7 @@ public class Exit : MonoBehaviour
         {
             if (canFinish)
             {
-                RSE_CallWinGame.RaiseEvent();
+                RSE_CallWinGame.Call();
             }
         }
     }

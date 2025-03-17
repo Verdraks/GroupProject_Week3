@@ -8,7 +8,7 @@ public class PickUpObject : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            pickUpObject.RaiseEvent();
+            pickUpObject.Call();
             Destroy(pickUpPrefabs);
         }
     }

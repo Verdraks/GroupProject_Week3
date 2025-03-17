@@ -32,6 +32,6 @@ public class GameManager : MonoBehaviour
 
     private void SetTrueFinishLevel()
     {
-        RSE_CanFinishLevel.RaiseEvent(true);
+        RSE_CanFinishLevel.Call(true);
     }
 }

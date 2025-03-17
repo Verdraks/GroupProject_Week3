@@ -36,22 +36,22 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             targetPos += Vector2Int.up;
-            RSE_UpdateSpriteToBack.RaiseEvent();
+            RSE_UpdateSpriteToBack.Call();
         }
         else if (Input.GetKey(KeyCode.S))
         {
             targetPos += Vector2Int.down;
-            RSE_UpdateSpriteToFront.RaiseEvent();
+            RSE_UpdateSpriteToFront.Call();
         }
         else if (Input.GetKey(KeyCode.D))
         {
             targetPos += Vector2Int.right;
-            RSE_UpdateSpriteToRight.RaiseEvent();
+            RSE_UpdateSpriteToRight.Call();
         }
         else if (Input.GetKey(KeyCode.A))
         {
             targetPos += Vector2Int.left;
-            RSE_UpdateSpriteToLeft.RaiseEvent();
+            RSE_UpdateSpriteToLeft.Call();
         }
     }
 }
