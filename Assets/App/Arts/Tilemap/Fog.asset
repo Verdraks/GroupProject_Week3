@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: sheet_246
+  m_Name: Fog
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -543614376, guid: 1ea44da745a3a5c4e9eb042ea1de6762, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 1db72312ba906e641b593304368e53fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -33,4 +33,4 @@ MonoBehaviour:
     e33: 1
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
-  m_ColliderType: 2
+  m_ColliderType: 1
