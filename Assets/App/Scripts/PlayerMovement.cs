@@ -1,28 +1,18 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Settings")]
-    [SerializeField] private float playerSpeed;
-    [SerializeField] private int fogRevealRadius;
-
-    [Header("References")]
-    [SerializeField] private Tilemap fogTilemap;
-
     [Header("RSE")]
     [SerializeField] RSE_UpdateSpriteToFront RSE_UpdateSpriteToFront;
     [SerializeField] RSE_UpdateSpriteToBack RSE_UpdateSpriteToBack;
     [SerializeField] RSE_UpdateSpriteToLeft RSE_UpdateSpriteToLeft;
     [SerializeField] RSE_UpdateSpriteToRight RSE_UpdateSpriteToRight;
-
+    [SerializeField] float playerSpeed;
     private Vector2Int targetPos;
-
     private void Awake()
     {
         targetPos = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
         transform.position = (Vector2)targetPos;
-        RevealArea(targetPos);
     }
     void Update()
     {
@@ -37,12 +27,10 @@ public class PlayerMovement : MonoBehaviour
             SetNewTargetPosition();
         }
     }
-
     private void MoveTowardsTargetPosition()
     {
         transform.position = Vector2.MoveTowards(transform.position, targetPos, playerSpeed * Time.deltaTime);
     }
-
     private void SetNewTargetPosition()
     {
         if (Input.GetKey(KeyCode.W))
@@ -64,15 +52,6 @@ public class PlayerMovement : MonoBehaviour
         {
             targetPos += Vector2Int.left;
             RSE_UpdateSpriteToLeft.Call();
-        }
-    }
-
-    private void RevealArea(Vector2Int position)
-    {
-        Vector3Int tilePosition = new Vector3Int(position.x, position.y, 0);
-        if (fogTilemap.HasTile(tilePosition))
-        {
-            fogTilemap.SetTile(tilePosition, null);
         }
     }
 }
