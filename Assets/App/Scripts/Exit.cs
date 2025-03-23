@@ -1,33 +1,25 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Exit : MonoBehaviour
 {
-    [Header("RSE")]
-    [SerializeField] RSE_CanFinishLevel RSE_CanFinishLevel;
-    [SerializeField] RSE_CallWinGame RSE_CallWinGame;
-    bool canFinish;
+    [Header("Settings")]
+    [SerializeField] private string levelToLoad;
+    [SerializeField] private int requiredQuantity;
 
-    private void OnEnable()
+    [Header("RSO")]
+    [SerializeField] private RSO_Ressources rsoRessource;
+
+    private void Awake()
     {
-        RSE_CanFinishLevel.action += SetBool;
-    }
-    private void OnDisable()
-    {
-        RSE_CanFinishLevel.action -= SetBool;
-    }
-    private void SetBool(bool value)
-    {
-        canFinish = value;
+        rsoRessource.Value = 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if(collision.CompareTag("Player") && rsoRessource.Value >= requiredQuantity)
         {
-            if (canFinish)
-            {
-                RSE_CallWinGame.Call();
-            }
+            SceneManager.LoadScene(levelToLoad);
         }
     }
 }

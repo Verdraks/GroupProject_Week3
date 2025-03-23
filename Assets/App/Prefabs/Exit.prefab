@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e06b3603d6a8004382a8bda7a4e7707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RSE_CanFinishLevel: {fileID: 11400000, guid: 38b177bd96514e94296bcfc29947b1ba, type: 2}
-  RSE_CallWinGame: {fileID: 11400000, guid: a4f4bab773187f84c80b0f263a6c08d6, type: 2}
+  levelToLoad: MainMenu
+  requiredQuantity: 6
+  rsoRessource: {fileID: 11400000, guid: aff71f613e9011e47a241757ff6689d7, type: 2}
 --- !u!61 &2846247436256132012
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -81,7 +82,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.5, y: 0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
