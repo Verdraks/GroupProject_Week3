@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] RSE_UpdateSpriteToBack RSE_UpdateSpriteToBack;
     [SerializeField] RSE_UpdateSpriteToLeft RSE_UpdateSpriteToLeft;
     [SerializeField] RSE_UpdateSpriteToRight RSE_UpdateSpriteToRight;
+    [SerializeField] private RSE_PlayerDie rsePlayerDie;
     [Space(5)]
     [SerializeField] private RSE_DiscoverTile rseDiscoverTile;
 
@@ -25,9 +26,11 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 currentPos;
 
+    private bool _dead;
+
     private CountdownTimer ghostTimer;
     
-    private static readonly Vector2[] Directions = { Vector2.zero,  Vector2.right, Vector2.left, Vector2.up, Vector2.down };
+    private static readonly Vector2[] Directions = { Vector2.zero,  Vector2.right, Vector2.left, Vector2.up, Vector2.down, new(1,1), new(1,-1),new(-1, 1),new (-1,-1) };
 
     private void Awake()
     {
@@ -88,6 +91,7 @@ public class PlayerController : MonoBehaviour
 
     public void GetInput(Vector2 direction)
     {
+        if (_dead) return;
         CheckMove(direction);
 
         if (direction == Vector2.left) RSE_UpdateSpriteToLeft.Call();
@@ -104,11 +108,12 @@ public class PlayerController : MonoBehaviour
     private void OnGhostEnd()
     {
         if (rsfGetTileType.Call(currentPos) == TileType.Wall) 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Die();
     }
 
     private void Die()
     {
-        SceneManager.LoadScene("MainMenu");
+        _dead = true;
+        rsePlayerDie.Call();
     }
 }

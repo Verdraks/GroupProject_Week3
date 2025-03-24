@@ -8,6 +8,9 @@ public class GameTimer : MonoBehaviour
     [Header("Settings")] 
     [SerializeField] private float timeGame = 20f;
     [SerializeField] private RSO_Timer rsoTimer;
+
+    [Header("Output")]
+    [SerializeField] private RSE_PlayerDie rsePlayerDie;
     
     private CountdownTimer _gameTimer;
 
@@ -31,6 +34,6 @@ public class GameTimer : MonoBehaviour
 
     private void GameEnd()
     {
-        SceneManager.LoadScene("MainMenu");
+        rsePlayerDie.Call();
     }
 }

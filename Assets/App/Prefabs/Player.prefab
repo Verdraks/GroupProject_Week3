@@ -83,6 +83,7 @@ MonoBehaviour:
   RSE_UpdateSpriteToBack: {fileID: 11400000, guid: 3ca91950c20dd524196b7c54d51983fd, type: 2}
   RSE_UpdateSpriteToLeft: {fileID: 11400000, guid: e4289be6bdeb5454297c7873807d565d, type: 2}
   RSE_UpdateSpriteToRight: {fileID: 11400000, guid: 0ef8e3c1492dc264da58c08930b63cec, type: 2}
+  rsePlayerDie: {fileID: 11400000, guid: 725aef250d551a74c8d659d0350a36d2, type: 2}
   rseDiscoverTile: {fileID: 11400000, guid: 32784aaf67b6bc8438080ff1f72397c5, type: 2}
   rsfGetTileType: {fileID: 11400000, guid: 775e6acc6339975468fa30ae4b9d5cd0, type: 2}
   currentPos: {x: 0, y: 0}

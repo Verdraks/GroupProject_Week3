@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeGame: 120
   rsoTimer: {fileID: 11400000, guid: d11e3b3bc96fdd649ae5ad3c4f2b5656, type: 2}
+  rsePlayerDie: {fileID: 11400000, guid: 725aef250d551a74c8d659d0350a36d2, type: 2}
