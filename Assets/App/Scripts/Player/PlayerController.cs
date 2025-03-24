@@ -28,23 +28,29 @@ public class PlayerController : MonoBehaviour
     public Vector2 currentPos;
 
     private CountdownTimer ghostTimer;
+    
+    private static readonly Vector2[] Directions = { Vector2.zero,  Vector2.right, Vector2.left, Vector2.up, Vector2.down };
 
     private void Awake()
     {
         currentPos = transform.position;
 
         rsoMovementPoints.Value = movementPoints;
-        rseDiscoverTile.Call(currentPos);
+        
+        foreach (var dir in Directions)
+        {
+            rseDiscoverTile.Call(currentPos + dir);
+        }
 
-        ghostTimer = new CountdownTimer(ghostDuration);
-
-        ghostTimer.OnTimerStop = () => OnGhostEnd();
+        ghostTimer = new CountdownTimer(ghostDuration)
+        {
+            OnTimerStop = OnGhostEnd
+        };
     }
 
     private void Update()
     {
         HandleTimers();
-        GetInput();
     }
 
     private void HandleTimers()
@@ -72,31 +78,21 @@ public class PlayerController : MonoBehaviour
     {
         currentPos += direction;
         transform.position = new Vector3(Mathf.FloorToInt(currentPos.x), Mathf.FloorToInt(currentPos.y), transform.position.z);
-        rseDiscoverTile.Call(currentPos);
+           
+        foreach (var dir in Directions)
+        {
+            rseDiscoverTile.Call(currentPos + dir);
+        }   
     }
 
-    private void GetInput()
+    public void GetInput(Vector2 direction)
     {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            CheckMove(Vector2.up);
-            RSE_UpdateSpriteToBack.Call();
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            CheckMove(Vector2.down);
-            RSE_UpdateSpriteToFront.Call();
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            CheckMove(Vector2.right);
-            RSE_UpdateSpriteToRight.Call();
-        }
-        else if (Input.GetKeyDown(KeyCode.A))
-        {
-            CheckMove(Vector2.left);
-            RSE_UpdateSpriteToLeft.Call();
-        }
+        CheckMove(direction);
+
+        if (direction == Vector2.left) RSE_UpdateSpriteToLeft.Call();
+        else if (direction == Vector2.right) RSE_UpdateSpriteToRight.Call();
+        else if (direction == Vector2.down) RSE_UpdateSpriteToBack.Call();
+        else if (direction == Vector2.up) RSE_UpdateSpriteToFront.Call();
     }
 
     public void ActiveGhostMode()
