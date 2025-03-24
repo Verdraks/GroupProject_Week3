@@ -7,4 +7,8 @@
 - RSE_RevelingTile, révèle une tile depuis le tileManager, sur la tilemap Fog
 - Rso_movementPoits stocke le nombre de points de mouvement, le playercontroller enlève 1 et s'il est égal à 0 tue le joueur
 - Powerup call une fonction dans le controller avec un triggerEnter, le player lance un timer pour gérer le ghostMode
+- Le joueur recommence quand il meurt (bloquer dans un object pendant le ghost mode, ou fini ne fini pas le jeu dans les temps)
+-  Game Timer -> Definie un temps de jeu qui a la fin du chrono fait recommencer le niveau
 - MaimMenu -> Play, Quit button
+- Le jeu tourne au format portriat et se commande par un swipe sur l'écran (gauche, pour aller a gauche ...)
+- Les pickup et power up sont générer procéduralement
