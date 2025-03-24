@@ -1,8 +1,6 @@
-using System.Threading;
-using UnityEditor.Build.Content;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -36,16 +34,19 @@ public class PlayerController : MonoBehaviour
         currentPos = transform.position;
 
         rsoMovementPoints.Value = movementPoints;
-        
-        foreach (var dir in Directions)
-        {
-            rseDiscoverTile.Call(currentPos + dir);
-        }
 
         ghostTimer = new CountdownTimer(ghostDuration)
         {
             OnTimerStop = OnGhostEnd
         };
+    }
+
+    private void Start()
+    {
+        foreach (var dir in Directions)
+        {
+            rseDiscoverTile.Call(currentPos + dir);
+        }
     }
 
     private void Update()

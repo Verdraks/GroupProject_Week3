@@ -7,7 +7,6 @@ public class GameTimer : MonoBehaviour
 {
     [Header("Settings")] 
     [SerializeField] private float timeGame = 20f;
-
     [SerializeField] private RSO_Timer rsoTimer;
     
     private CountdownTimer _gameTimer;
